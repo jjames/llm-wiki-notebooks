@@ -1,3 +1,4 @@
 data/
 *.png
 *.md
+!README.md
