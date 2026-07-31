@@ -18,6 +18,10 @@ Jupyter notebooks accompanying the [llm-wiki](../llm-wiki) knowledge base — a 
 | 10 | `10_bert.ipynb` | Masked language modeling, BERT |
 | 11 | `11_superposition.ipynb` | Toy models of superposition (Elhage et al. 2022) |
 | 12 | `12_sparse_autoencoder.ipynb` | Sparse autoencoders, monosemanticity (Bricken et al. 2023) |
+| 13 | `13_linear_algebra_mastery.ipynb` | Centering, SVD, low-rank recovery, basis invariance, least squares |
+| 14 | `14_calculus_optimization_mastery.ipynb` | Stable softmax, manual gradients, gradient checks, GD, momentum, AdamW |
+| 15 | `15_probability_statistics_mastery.ipynb` | Paired evaluation, bootstrap intervals, randomization tests, Bayesian updating |
+| 16 | `16_information_theory_mastery.ipynb` | Entropy, mutual information, data processing, ELBO, bits-back coding |
 
 ## Setup
 
@@ -27,3 +31,5 @@ jupyter notebook
 ```
 
 Notebooks 11–12 implement experiments from the mechanistic interpretability literature and are best read alongside the corresponding wiki pages on [[superposition]] and [[towards-monosemanticity]].
+
+Notebooks 13–16 are the executable coding labs for the four-track [prerequisite mastery layer](../llm-wiki/mastery/README.md). Each includes assertions, investigation prompts, and a handoff to its capstone.
