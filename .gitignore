@@ -1,4 +1,6 @@
 data/
 *.png
-*.md
-!README.md
+.ipynb_checkpoints/
+.venv/
+__pycache__/
+*.py[cod]

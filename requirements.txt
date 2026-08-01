@@ -1,0 +1,6 @@
+# Reproducible learner environment (Python 3.12)
+numpy==2.3.5
+matplotlib==3.10.8
+jupyter==1.1.1
+torch==2.7.1
+torchvision==0.22.1
