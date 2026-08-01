@@ -39,6 +39,14 @@ Read these alongside the wiki pages on [superposition](https://github.com/jjames
 
 These are executable labs for the four-track [prerequisite mastery layer](https://github.com/jjames/llm-wiki/tree/main/mastery). Each includes assertions, investigation prompts, and a handoff to its capstone.
 
+### Prerequisite deep dives
+
+| # | Notebook | Topics |
+|---|----------|--------|
+| 17 | [`17_autodiff_from_scratch.ipynb`](17_autodiff_from_scratch.ipynb) | Finite-difference diagnostics, dual-number JVPs, scalar reverse mode, VJPs, HVPs, XOR MLP |
+
+Notebook 17 expands the calculus track's matrix-calculus and autodiff module into a from-scratch implementation lab. Complete it before Notebook 14 if reverse-mode differentiation and backpropagation are still new; use it after Notebook 14 as a deeper systems exercise otherwise.
+
 ## Setup
 
 ```bash
@@ -66,4 +74,4 @@ Committed outputs are optional because some visualizations are useful when brows
 
 ## Exploratory Material
 
-Early calculus and scalar-autograd scratchpads live in [`scratch/`](scratch/README.md). They are retained as raw material for a future guided autodiff lab, but they are not part of the curriculum or the execution suite.
+Early calculus and scalar-autograd scratchpads live in [`scratch/`](scratch/README.md). They are retained as provenance for Notebook 17, but they are not part of the curriculum or the execution suite.
