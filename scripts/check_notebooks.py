@@ -33,6 +33,7 @@ CANONICAL_NOTEBOOKS = [
     "14_calculus_optimization_mastery.ipynb",
     "15_probability_statistics_mastery.ipynb",
     "16_information_theory_mastery.ipynb",
+    "17_autodiff_from_scratch.ipynb",
 ]
 FAST_NOTEBOOKS = [
     "01_perceptron.ipynb",
@@ -41,6 +42,7 @@ FAST_NOTEBOOKS = [
     "14_calculus_optimization_mastery.ipynb",
     "15_probability_statistics_mastery.ipynb",
     "16_information_theory_mastery.ipynb",
+    "17_autodiff_from_scratch.ipynb",
 ]
 IMPORT_TO_REQUIREMENT = {
     "matplotlib": "matplotlib",
