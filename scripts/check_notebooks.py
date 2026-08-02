@@ -44,6 +44,7 @@ FAST_NOTEBOOKS = [
     "16_information_theory_mastery.ipynb",
     "17_autodiff_from_scratch.ipynb",
 ]
+PEDAGOGICAL_NOTEBOOKS = CANONICAL_NOTEBOOKS[:12]
 IMPORT_TO_REQUIREMENT = {
     "matplotlib": "matplotlib",
     "numpy": "numpy",
@@ -101,6 +102,22 @@ def validate_structure() -> list[str]:
             continue
 
         cell_ids: set[str] = set()
+        notebook_source = "\n".join(source_text(cell) for cell in notebook["cells"])
+        if path.name in PEDAGOGICAL_NOTEBOOKS:
+            lesson_number = PEDAGOGICAL_NOTEBOOKS.index(path.name) + 1
+            expected_prompt_id = f"pedagogy-{lesson_number:02d}-prompts"
+            expected_check_id = f"pedagogy-{lesson_number:02d}-checks"
+            cells_by_id = {cell.get("id"): cell for cell in notebook["cells"]}
+            if "## Pedagogical checks" not in notebook_source:
+                failures.append(f"{path.relative_to(ROOT)}: missing pedagogical-check section")
+            if expected_prompt_id not in cells_by_id:
+                failures.append(f"{path.relative_to(ROOT)}: missing pedagogical prompt cell")
+            check_cell = cells_by_id.get(expected_check_id)
+            if check_cell is None:
+                failures.append(f"{path.relative_to(ROOT)}: missing pedagogical assertion cell")
+            elif not re.search(r"^\s*assert\s+", source_text(check_cell), re.MULTILINE):
+                failures.append(f"{path.relative_to(ROOT)}: pedagogical checks contain no assertions")
+
         for index, cell in enumerate(notebook["cells"], start=1):
             cell_id = cell.get("id")
             if not cell_id:
