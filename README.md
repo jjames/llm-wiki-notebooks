@@ -60,7 +60,7 @@ Notebook 03 downloads MNIST into `data/` on first execution. CUDA is optional; e
 
 ## Validation
 
-The repository checks notebook structure, committed error outputs, dependency coverage, and clean-kernel execution of the fast deterministic suite:
+The repository checks notebook structure, committed error outputs, dependency coverage, the pedagogical-check sections in Notebooks 01–12, and clean-kernel execution of the fast deterministic suite:
 
 ```bash
 python -m pip install -r requirements-ci.txt
