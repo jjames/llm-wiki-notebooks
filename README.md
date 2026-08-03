@@ -55,16 +55,19 @@ These are executable labs for the four-track [prerequisite mastery layer](https:
 | # | Notebook | Topics |
 |---|----------|--------|
 | 17 | [`17_autodiff_from_scratch.ipynb`](17_autodiff_from_scratch.ipynb) | Finite-difference diagnostics, dual-number JVPs, scalar reverse mode, VJPs, HVPs, XOR MLP |
+| 22 | [`22_linear_systems_subspaces_conditioning.ipynb`](22_linear_systems_subspaces_conditioning.ipynb) | Four fundamental subspaces, projections, QR least squares, conditioning, pseudoinverse, ridge |
+| 23 | [`23_multivariable_calculus_optimization_geometry.ipynb`](23_multivariable_calculus_optimization_geometry.ipynb) | Directional derivatives, Taylor models, Hessian geometry, GD stability, constrained optimization |
+| 24 | [`24_statistical_inference_calibration_model_checking.ipynb`](24_statistical_inference_calibration_model_checking.ipynb) | Coverage, power, likelihood geometry, calibration, posterior predictive model checking |
 
-Notebook 17 expands the calculus track's matrix-calculus and autodiff module into a from-scratch implementation lab. Complete it before Notebook 14 if reverse-mode differentiation and backpropagation are still new; use it after Notebook 14 as a deeper systems exercise otherwise.
+Notebook 17 expands the calculus track's matrix-calculus and autodiff module into a from-scratch implementation lab. Notebooks 22–24 strengthen the most important gaps between the compact guided surveys and independent mastery work. Complete the applicable deep dive before its mastery lab when the topic is new; use it afterward as targeted repair when a diagnostic reveals the gap.
 
 ### Recommended prerequisite notebook order
 
 | Track | Guided foundations | Deep dive | Mastery lab |
 |---|---|---|---|
-| Linear algebra | 18 | — | 13 |
-| Calculus and optimization | 19 | 17 (autodiff) | 14 |
-| Probability and statistics | 20 | — | 15 |
+| Linear algebra | 18 | 22 (systems and conditioning) | 13 |
+| Calculus and optimization | 19 | 23 (optimization geometry) → 17 (autodiff) | 14 |
+| Probability and statistics | 20 | 24 (inference and model checking) | 15 |
 | Information theory | 21 | — | 16 |
 
 ## Setup
