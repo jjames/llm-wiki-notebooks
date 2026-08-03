@@ -28,6 +28,17 @@ Jupyter notebooks accompanying the [llm-wiki](https://github.com/jjames/llm-wiki
 
 Read these alongside the wiki pages on [superposition](https://github.com/jjames/llm-wiki/blob/main/wiki/superposition.md) and [Towards Monosemanticity](https://github.com/jjames/llm-wiki/blob/main/wiki/towards-monosemanticity.md). Notebooks 11–12 run several CPU training sweeps and can take substantially longer than the earlier notebooks.
 
+### Prerequisite guided foundations — Part II
+
+| # | Notebook | Topics |
+|---|----------|--------|
+| 18 | [`18_linear_algebra_foundations.ipynb`](18_linear_algebra_foundations.ipynb) | Vector geometry, transformations, tensors/einsum, systems, bases, conditioning, least squares, SVD/PCA |
+| 19 | [`19_calculus_optimization_foundations.ipynb`](19_calculus_optimization_foundations.ipynb) | Stable functions, derivatives, directional change, chain rule, Jacobians, curvature, gradient descent |
+| 20 | [`20_probability_statistics_foundations.ipynb`](20_probability_statistics_foundations.ipynb) | Distributions, Bayes, covariance, Monte Carlo, CLT, intervals, MLE, Bayesian updating, power |
+| 21 | [`21_information_theory_foundations.ipynb`](21_information_theory_foundations.ipynb) | Surprise, entropy, cross-entropy, KL, mutual information, data processing, Huffman coding, ELBO |
+
+These are teaching labs for the complete four-track [prerequisite curriculum](https://github.com/jjames/llm-wiki/blob/main/lessons/00-curriculum-map.md). They introduce each idea through short derivations, visual experiments, assertions, and cumulative questions before the less-guided mastery layer.
+
 ### Prerequisite mastery labs
 
 | # | Notebook | Topics |
@@ -46,6 +57,15 @@ These are executable labs for the four-track [prerequisite mastery layer](https:
 | 17 | [`17_autodiff_from_scratch.ipynb`](17_autodiff_from_scratch.ipynb) | Finite-difference diagnostics, dual-number JVPs, scalar reverse mode, VJPs, HVPs, XOR MLP |
 
 Notebook 17 expands the calculus track's matrix-calculus and autodiff module into a from-scratch implementation lab. Complete it before Notebook 14 if reverse-mode differentiation and backpropagation are still new; use it after Notebook 14 as a deeper systems exercise otherwise.
+
+### Recommended prerequisite notebook order
+
+| Track | Guided foundations | Deep dive | Mastery lab |
+|---|---|---|---|
+| Linear algebra | 18 | — | 13 |
+| Calculus and optimization | 19 | 17 (autodiff) | 14 |
+| Probability and statistics | 20 | — | 15 |
+| Information theory | 21 | — | 16 |
 
 ## Setup
 

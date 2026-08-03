@@ -34,6 +34,10 @@ CANONICAL_NOTEBOOKS = [
     "15_probability_statistics_mastery.ipynb",
     "16_information_theory_mastery.ipynb",
     "17_autodiff_from_scratch.ipynb",
+    "18_linear_algebra_foundations.ipynb",
+    "19_calculus_optimization_foundations.ipynb",
+    "20_probability_statistics_foundations.ipynb",
+    "21_information_theory_foundations.ipynb",
 ]
 FAST_NOTEBOOKS = [
     "01_perceptron.ipynb",
@@ -43,8 +47,13 @@ FAST_NOTEBOOKS = [
     "15_probability_statistics_mastery.ipynb",
     "16_information_theory_mastery.ipynb",
     "17_autodiff_from_scratch.ipynb",
+    "18_linear_algebra_foundations.ipynb",
+    "19_calculus_optimization_foundations.ipynb",
+    "20_probability_statistics_foundations.ipynb",
+    "21_information_theory_foundations.ipynb",
 ]
 PEDAGOGICAL_NOTEBOOKS = CANONICAL_NOTEBOOKS[:12]
+GUIDED_FOUNDATION_NOTEBOOKS = CANONICAL_NOTEBOOKS[17:21]
 IMPORT_TO_REQUIREMENT = {
     "matplotlib": "matplotlib",
     "numpy": "numpy",
@@ -117,6 +126,16 @@ def validate_structure() -> list[str]:
                 failures.append(f"{path.relative_to(ROOT)}: missing pedagogical assertion cell")
             elif not re.search(r"^\s*assert\s+", source_text(check_cell), re.MULTILINE):
                 failures.append(f"{path.relative_to(ROOT)}: pedagogical checks contain no assertions")
+        if path.name in GUIDED_FOUNDATION_NOTEBOOKS:
+            for required_heading in ("### Learning goals", "## Cumulative"):
+                if required_heading not in notebook_source:
+                    failures.append(
+                        f"{path.relative_to(ROOT)}: guided lab is missing {required_heading}"
+                    )
+            if len(re.findall(r"^\s*assert\s+", notebook_source, re.MULTILINE)) < 3:
+                failures.append(
+                    f"{path.relative_to(ROOT)}: guided lab needs at least three executable assertions"
+                )
 
         for index, cell in enumerate(notebook["cells"], start=1):
             cell_id = cell.get("id")
