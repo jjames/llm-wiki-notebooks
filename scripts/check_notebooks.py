@@ -38,6 +38,9 @@ CANONICAL_NOTEBOOKS = [
     "19_calculus_optimization_foundations.ipynb",
     "20_probability_statistics_foundations.ipynb",
     "21_information_theory_foundations.ipynb",
+    "22_linear_systems_subspaces_conditioning.ipynb",
+    "23_multivariable_calculus_optimization_geometry.ipynb",
+    "24_statistical_inference_calibration_model_checking.ipynb",
 ]
 FAST_NOTEBOOKS = [
     "01_perceptron.ipynb",
@@ -51,9 +54,17 @@ FAST_NOTEBOOKS = [
     "19_calculus_optimization_foundations.ipynb",
     "20_probability_statistics_foundations.ipynb",
     "21_information_theory_foundations.ipynb",
+    "22_linear_systems_subspaces_conditioning.ipynb",
+    "23_multivariable_calculus_optimization_geometry.ipynb",
+    "24_statistical_inference_calibration_model_checking.ipynb",
 ]
 PEDAGOGICAL_NOTEBOOKS = CANONICAL_NOTEBOOKS[:12]
 GUIDED_FOUNDATION_NOTEBOOKS = CANONICAL_NOTEBOOKS[17:21]
+DEEP_DIVE_NOTEBOOKS = {
+    "22_linear_systems_subspaces_conditioning.ipynb",
+    "23_multivariable_calculus_optimization_geometry.ipynb",
+    "24_statistical_inference_calibration_model_checking.ipynb",
+}
 IMPORT_TO_REQUIREMENT = {
     "matplotlib": "matplotlib",
     "numpy": "numpy",
@@ -135,6 +146,16 @@ def validate_structure() -> list[str]:
             if len(re.findall(r"^\s*assert\s+", notebook_source, re.MULTILINE)) < 3:
                 failures.append(
                     f"{path.relative_to(ROOT)}: guided lab needs at least three executable assertions"
+                )
+        if path.name in DEEP_DIVE_NOTEBOOKS:
+            for required_heading in ("### Learning goals", "## Cumulative"):
+                if required_heading not in notebook_source:
+                    failures.append(
+                        f"{path.relative_to(ROOT)}: deep dive is missing {required_heading}"
+                    )
+            if len(re.findall(r"^\s*assert\s+", notebook_source, re.MULTILINE)) < 5:
+                failures.append(
+                    f"{path.relative_to(ROOT)}: deep dive needs at least five executable assertions"
                 )
 
         for index, cell in enumerate(notebook["cells"], start=1):
